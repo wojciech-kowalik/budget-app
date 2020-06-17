@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
+import styledNormalize from 'styled-normalize';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-  ${normalize}
-  
+  ${styledNormalize}
+ 
   ul {
     list-style: none;
     margin: 0;
@@ -12,4 +12,4 @@ export default createGlobalStyle`
       margin-left: ${({ theme }) => theme.spacing.xs}px;
     }
   }
-`
+`;
