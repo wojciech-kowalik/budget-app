@@ -7,7 +7,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components'
-import { Navigation, Wrapper } from 'components'
+import { Navigation, Wrapper, LoadingIndicator } from 'components'
 import theme from 'utils/theme'
 import { useTranslation } from 'react-i18next'
 
@@ -15,7 +15,7 @@ function App() {
   const {i18n} = useTranslation()
 
   return (
-    <ThemeProvider theme={theme}>
+    <React.Fragment>
       <GlobalStyles />
       <Router>
         <Navigation 
@@ -41,15 +41,17 @@ function App() {
           </Switch>
         </Wrapper>
       </Router>
-    </ThemeProvider>
+    </React.Fragment>
   );
 }
 
 const RootApp = () => {
   return (
-    <React.Suspense fallback="Loading ...">
-      <App />
-    </React.Suspense>
+    <ThemeProvider theme={theme}>
+      <React.Suspense fallback={<LoadingIndicator />}>
+        <App />
+      </React.Suspense>
+    </ThemeProvider>
   )
 }
 
