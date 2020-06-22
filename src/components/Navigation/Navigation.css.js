@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Wrapper from '../Wrapper'
 
 const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.gray.light};
@@ -12,4 +13,9 @@ const List = styled.ul`
   align-items: center;
 `
 
-export { Container, List }
+const NavigationWrapper = styled(Wrapper)`
+  display: flex;
+  justify-content: space-between;
+`
+
+export { Container, List, NavigationWrapper }
