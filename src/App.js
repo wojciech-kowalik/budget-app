@@ -7,7 +7,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components'
-import { Navigation, Wrapper, LoadingIndicator, Button} from 'components'
+import { Navigation, Wrapper, LoadingIndicator, Button, Homepage} from 'components'
 import theme from 'utils/theme'
 import { useTranslation } from 'react-i18next'
 
@@ -15,7 +15,7 @@ function App() {
   const {i18n} = useTranslation()
 
   return (
-    <React.Fragment>
+    <>
       <GlobalStyles />
       <Router>
         <Navigation 
@@ -33,7 +33,7 @@ function App() {
         <Wrapper>
           <Switch>
             <Route exact path="/">
-              Homepage
+              <Homepage />
             </Route>
             <Route path="/budget">
               Budget
@@ -41,7 +41,7 @@ function App() {
           </Switch>
         </Wrapper>
       </Router>
-    </React.Fragment>
+    </>
   );
 }
 

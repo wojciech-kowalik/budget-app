@@ -13,4 +13,4 @@ React.memo,
 React.lazy, 
 Suspense, 
 Context API, 
-JSON Serve
+JSON Server
