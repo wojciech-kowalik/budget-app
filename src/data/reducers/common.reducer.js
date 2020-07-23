@@ -7,11 +7,11 @@ import {
   } from 'data/constants';
 
 const initialState = {
-    loadingState: {},
+    loadingState: null,
     allCategories: [],
 }
 
-const budget = (state = initialState, action) => {
+const common = (state = initialState, action) => {
     const newLoadingState = { ...state.loadingState }
 
     switch(action.type) {
@@ -42,4 +42,4 @@ const budget = (state = initialState, action) => {
     }
 }
 
-export default budget
+export default common
