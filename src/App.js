@@ -22,7 +22,7 @@ function App() {
         <Navigation 
         items={[
           { content:'Homepage', to: '/' },
-          { content: 'Budget', to: '/budget' },
+          { content: 'Budget', to: '/budget' }
         ]}
         RightElement={(
           <div>
@@ -43,7 +43,7 @@ function App() {
         </Wrapper>
       </Router>
     </>
-  );
+  )
 }
 
 const RootApp = () => {
