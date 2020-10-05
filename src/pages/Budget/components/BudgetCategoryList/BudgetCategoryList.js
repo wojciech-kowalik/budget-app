@@ -4,7 +4,7 @@ import { groupBy } from 'lodash'
 import { ToggleableList } from 'components'
 import ParentCategory from './ParentCategory'
 import CategoryItem from './CategoryItem'
-const BudgetCategoryList = ({budgetedCategories, allCategories}) => {
+const BudgetCategoryList = ({budgetedCategories, allCategories, budget}) => {
     const budgetedCategoriesByParent = groupBy(
         budgetedCategories, 
         item => allCategories.find(category => category.id === item.categoryId).parentCategory.name
@@ -16,6 +16,8 @@ const BudgetCategoryList = ({budgetedCategories, allCategories}) => {
             <ParentCategory
             name={parentName}
             onClick={() => onClick(parentName)}
+            categories={categories}
+            transactions={budget.transactions}
             />
         ),
         children: categories.map(budgetedCategory => {
@@ -39,5 +41,6 @@ const BudgetCategoryList = ({budgetedCategories, allCategories}) => {
 
 export default connect(state => ({
    budgetedCategories: state.budget.budgetedCategories,
-   allCategories: state.common.allCategories
+   allCategories: state.common.allCategories,
+   budget: state.budget.budget
 }))(BudgetCategoryList)
