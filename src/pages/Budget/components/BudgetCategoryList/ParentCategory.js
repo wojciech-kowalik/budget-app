@@ -1,19 +1,20 @@
-import React, { useMemo } from 'react';
-import { noop } from 'lodash';
-import { formatCurrency } from 'utils';
+import React, { useMemo } from 'react'
+import { noop } from 'lodash'
+import { formatCurrency } from 'utils'
 
-import { ParentCategory as Root, CategoryAmount } from './BudgetCategoryList.css';
+import { ParentCategory as Root, CategoryAmount } from './BudgetCategoryList.css'
 
 const ParentCategory = ({
   onClick = noop, name, amount, categories,
   transactions,
 }) => {
   const categoryLeftValue = useMemo(() => {
+    if(!!amount) return null
     const budgeted = (() => {
       try {
-        return categories.reduce((acc, category) => acc + category.budget, 0);
+        return categories.reduce((acc, category) => acc + category.budget, 0)
       } catch (error) {
-        return null;
+        return null
       }
     })();
     const parentCategoryTransactions = transactions
@@ -21,10 +22,10 @@ const ParentCategory = ({
     const spentOnParentCategory = parentCategoryTransactions.reduce((acc, transaction) => acc + transaction.amount, 0);
     const totalLeft = budgeted
       ? budgeted - spentOnParentCategory
-      : null;
+      : null
 
     return totalLeft;
-  }, [categories, transactions]);
+  }, [categories, transactions, amount])
 
   const amountValue = useMemo(() => amount || categoryLeftValue, [amount, categoryLeftValue]);
 
@@ -35,12 +36,12 @@ const ParentCategory = ({
         {formatCurrency(amountValue)}
       </CategoryAmount>
     </Root>
-  );
-};
+  )
+}
 
 ParentCategory.defaultProps = {
   transactions: [],
   categories: [],
-};
+}
 
-export default ParentCategory;
+export default ParentCategory
