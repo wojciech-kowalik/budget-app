@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## budget-app
 
-This project is for learning purpose using
+This project is for learning purposes
 
 Styled-components, 
 Redux, 
